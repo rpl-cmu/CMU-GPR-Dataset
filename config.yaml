@@ -1,0 +1,127 @@
+# Paths to data directories for GPR image construction.
+directory_paths: [
+  '/home/abaik/gpr_data_analysis_ws/data/PUBTEST/1612204529-582686901-smith-cmu-gpr'
+]
+
+training_data_output_path: '/home/abaik/gpr_data_analysis_ws/data/train_out'
+
+# Ground truth point.
+# Either center or left.
+ground_truth_point: 'center'
+
+radargram:
+  create: True
+
+  training_data_image_resolution: 0.015 # meters.
+
+
+submaps:
+  # Turn on submap construction.
+  create: False
+
+  # Range covered in training data images.
+  training_data_image_range: 3
+
+  # Resolution of training data image (number of columns).
+  # This value should be approximately the same as the number of GPR measurements
+  # within the desired range.
+  training_data_image_size: 100
+
+  training_data_image_resolution: 0.015 # meters.
+
+  # Distance between total station measurements in image construction.
+  ts_spacing: 0.02 # meters.
+
+  # Distance between odom measurements in image construction.
+  we_spacing: 0.02 # meters.
+
+im_props:
+  # Image resolution.
+  resolution: 0.02  # meters.
+
+  # Subtract background from image.
+  background_removal: true
+  background_removal_window: 100
+  background_removal_range_mult: 3
+
+  # Manually selected SEC gain parameters.
+  # NSH Highbay
+  # std_max: 3
+  # sec_gain_params:
+  #   a: .015
+  #   b: .01
+  #   thresh: 100
+
+  # # NSH B Level
+  # std_max: 2
+  # sec_gain_params:
+  #   a: .06
+  #   b: .5
+  #   thresh: 80
+
+  # # NREC
+  # std_max: 2
+  # sec_gain_params:
+  #   a: .03 
+  #   b: 0
+  #   thresh: 110
+  
+  # # Gates garage.
+  # std_max: 2
+  # sec_gain_params:
+  #   a: .03
+  #   b: .7
+  #   thresh: 80
+
+  # # Highbay
+  std_max: 2.5
+  sec_gain_params:
+    a: .015
+    b: 0
+    thresh: 100
+
+  gaussian_params:
+    use: True
+    sigma: 1
+    order: 0
+
+  triangular_params:
+    # Manufacturer specified system parameters.
+    sampling_freq: 5e+9
+
+    min_freq: 200e+6
+    max_freq: 850e+6
+
+    num_taps: 101
+
+  dewow_params:
+    degree: 3
+
+  # Splitting up data based on critical points.
+  split:
+    # Change direction (forward-backward detector).
+    range:
+      # Acceleration peak.
+      # Second derivative of the filtered odom values.
+      accel: 0.0003
+
+      # Butterworth bandpass filter parameters.
+      butter:
+        order: 3
+        wn: 0.02
+    
+    # Change direction (turning detector).
+    gyro:
+      # Turn off turning detector.
+      use: False
+      # Height of angular velocity peak.
+      height: 0.1
+      # Distance between angular velocity peaks.
+      dist: 2000
+
+visualize:
+  imu_peaks: False
+
+  gpr_image: False
+
+  show: True
