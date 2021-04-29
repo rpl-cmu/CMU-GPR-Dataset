@@ -41,7 +41,7 @@ im_props:
 
   # Subtract background from image.
   background_removal: true
-  background_removal_window: 100
+  background_removal_window: 0
   background_removal_range_mult: 3
 
   # Manually selected SEC gain parameters.

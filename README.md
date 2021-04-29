@@ -5,9 +5,9 @@
 <center><img src="misc/title_drawing.png" width="750" style="center"></center>
 &nbsp;
 
-The CMU-GPR dataset contains sequences of subsurface measurements from ground penetrating radar (GPR) along with conventional proprioceptive sensors, including wheel odometry and inertial measurements. One benefit of radar-based perception is robust performance in challenging weather conditions. Beyond more traditional imaging radar systems being actively used on vehicles, surface penetrating radar demonstrates additional robustness to spatio-temporal change. While the line-of-sight environment may change over time, subsurface features remain mostly consistent.
+The CMU-GPR dataset contains trajectory sequences, which include subsurface measurements from ground penetrating radar (GPR) along with conventional proprioceptive sensors (wheel odometer, IMU). One benefit of radar-based perception is its robust performance in challenging weather conditions. Beyond more traditional imaging radar systems being used actively on vehicles, surface penetrating radar allows for additional robustness to spatio-temporal change. While the line-of-sight environment may change over time, subsurface features remain mostly consistent.
 
-The CMU-GPR dataset consists of 15 sequences containing synchronized odometry, subsurface, and ground truth measurements. In this experimentation, a single-channel Sensors and Software Noggin 500 GPR was used. This type of GPR provides 1D measurements at each location, which can be used to construct 2D images through motion. Each sequence contains revisitation events, where similar subsurface features are observed.
+The CMU-GPR dataset consists of 15 sequences containing synchronized odometry, subsurface, and ground truth measurements. In this experimentation, a single-channel, off-the-shelf Sensors and Software Noggin 500 GPR was used. This GPR provides 1D measurements at each location, which can be used to construct 2D images through motion. Each sequence contains revisitation events, where subsurface features are observed more than once.
 
 &nbsp;
 
@@ -33,6 +33,7 @@ In order to create this dataset, we constructed a manually-pulled test article n
 - Sensors and Software OEM Noggin 500 GPR
 - XSENS MTi-30 9-axis IMU
 - YUMO quadrature encoder with 1024 PRR
+- Intel RealSense D435 (RGB images at 15Hz only)
 - Leica TS15 Total Station (used for ground truth)
 
 The system architecture is described in the image below:
@@ -43,7 +44,7 @@ Drawings of system setup with an approximate extrinsic calibration will be avail
 
 ## Dataset Files
 
-The dataset is available at the links shown in the table below. Data is available in the form of individual sequence files as well as files containing the entire set of sequences in particular locations.
+The dataset is available at the links shown in the table below. Data is available in the form of individual sequence files as well as files containing the entire set of sequences in particular locations. Additional data is provided without ground truth, but with highly accurate wheel odometry, which can be used in model construction and validation.
 
 **Sequences with ground truth positions:**
 | Sequence Number | Location | Filename | Correlated Sequences | Size (MB) | Link |
@@ -63,9 +64,9 @@ The dataset is available at the links shown in the table below. Data is availabl
 **Full unprocessed datasets:**
 | Sequence Number | Location | Filename | Correlated Sequences | Size (MB) | Link |
 | -- | -- | -- | -- | -- | -- |
-| B.0 |  gates_g | -- | --  | --  | [[Link]]() |
-| B.1 |  nsh_b | -- | --  | --  | [[Link]]() |
-| B.2 |  nsh_h | 1613061585-228924036-nsh_h_all-cmu-gpr.zip | --  | 1,258.4  | [[Link]]() |
+| B.0 |  gates_g | 1613063411-767709970-gates_g_all-cmu-gpr.zip | --  | 3,997.1  | [[Link]]() |
+| B.1 |  nsh_b | 1613059186-574372053-nsh_b_all-cmu-gpr.zip | --  | 3,205.3  | [[Link]](https://drive.google.com/file/d/1qoHHCSUx-PUPfOEek2GftmWOAfqqY_Zt/view?usp=sharing) |
+| B.2 |  nsh_h | 1613061585-228924036-nsh_h_all-cmu-gpr.zip | --  | 1,258.4  | [[Link]](https://drive.google.com/file/d/1N0bDwdnkmr7xCjS5LhK3JI10Pte4YNij/view?usp=sharing) |
 
 
 **Pure odometry data:** 
@@ -97,9 +98,9 @@ cmu-gpr-dataset
 
 ## Additional Details
 <!-- TODO add the paper to something and link. -->
-Additional details about the CMU-GPR dataset can be found here: [[Paper]](baikovitz.com).
+Additional details about the CMU-GPR dataset can be found here: [[Paper]]().
 
-An example of to use the data collected can be used can be found here: [[Paper]](https://arxiv.org/abs/2103.15317).
+An example using the data collected can be used can be found here: [[Paper]](https://arxiv.org/abs/2103.15317).
 
 &nbsp;
 
@@ -122,4 +123,4 @@ If you use this dataset in your research, please cite the following paper:
 ## Licence
 This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License and is intended for non-commercial academic use. If you are interested in using the dataset for commercial purposes please contact us at abaikovitz@cmu.edu.
 
-:heart::robot:s
+:heart::robot:
