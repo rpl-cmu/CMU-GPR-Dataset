@@ -9,7 +9,6 @@ The CMU-GPR dataset contains trajectory sequences, which include subsurface meas
 
 The CMU-GPR dataset consists of 15 sequences containing synchronized odometry, subsurface, and ground truth measurements. In this experimentation, a single-channel, off-the-shelf Sensors and Software Noggin 500 GPR was used. This GPR provides 1D measurements at each location, which can be used to construct 2D images through motion. Each sequence contains revisitation events, where subsurface features are observed more than once.
 
-&nbsp;
 
 ## Dependencies
 
@@ -24,7 +23,30 @@ All utility functions are tested using Python 3.6.12 and the following libraries
 - skimage (v0.16.2)
 - logging (v0.5.1.2)
 
-&nbsp;
+
+## GPR Image Construction
+
+The process to construct 2D, interpretable GPR images from 1D traces is summarized in the figure below.
+
+<img src="misc/gpr.png" width="500" style="center">
+
+(a) Unprocessed localized
+traces received by the device. (b) Horizontally stacked traces from (a), where
+the amplitudes correspond to pixel intensity. (c) Measurements after filtering
+and gain. (d) Final image after thresholding.
+
+The routine to create these images is provided in `metric_gpr_image.py`, where the following operations are applied:
+
+- Raw traces are collected with their corresponding wheel odometry measurements.
+- Rubber band interpolation is applied to produce a uniformly spaced image.
+- Background removal is applied to remove repetitive horizontal banding in the data. This can be applied over small windows or all available data.
+- Dewow filter is applied to remove DC bias and low-frequency noise. This is caused by antenna saturation.
+- Triangular bandpass filter to remove high frequency noise.
+- Zero time correction at the highest amplitude of the first airwave.
+- User-defined Spreading and Exponential Compensation (SEC) gain to improve the visibility of deeper objects.
+- Wavelet denoising to further remove high frequency noice.
+- Gaussian filter to blur the processed image as a final noise reduction pass.
+
 
 ## System Parameters
 
@@ -64,7 +86,7 @@ The dataset is available at the links shown in the table below. Data is availabl
 **Full unprocessed datasets:**
 | Sequence Number | Location | Filename | Correlated Sequences | Size (MB) | Link |
 | -- | -- | -- | -- | -- | -- |
-| B.0 |  gates_g | 1613063411-767709970-gates_g_all-cmu-gpr.zip | --  | 3,997.1  | [[Link]]() |
+| B.0 |  gates_g | 1613063411-767709970-gates_g_all-cmu-gpr.zip | --  | 3,997.1  | [[Link]](https://drive.google.com/file/d/1o8GBDv3d1qlOGaVfzocIPFAaOEWwDmS7/view?usp=sharing) |
 | B.1 |  nsh_b | 1613059186-574372053-nsh_b_all-cmu-gpr.zip | --  | 3,205.3  | [[Link]](https://drive.google.com/file/d/1qoHHCSUx-PUPfOEek2GftmWOAfqqY_Zt/view?usp=sharing) |
 | B.2 |  nsh_h | 1613061585-228924036-nsh_h_all-cmu-gpr.zip | --  | 1,258.4  | [[Link]](https://drive.google.com/file/d/1N0bDwdnkmr7xCjS5LhK3JI10Pte4YNij/view?usp=sharing) |
 
@@ -79,9 +101,9 @@ The dataset is available at the links shown in the table below. Data is availabl
 | C.1 |  nrec | 1611959921-603359937-nrec-cmu-gpr.zip | --  | 32.3  | [[Link]](https://drive.google.com/file/d/10XCwAfRfrrKVbGaa1U3QvT1ygDH7xXbX/view?usp=sharing) |
 | C.2 |  smith | 1612204529-582686901-smith-cmu-gpr.zip | --  | 32.3  | [[Link]](https://drive.google.com/file/d/1mcKLDv2Y4EaPNRNmudlqJhwjXEs_PAXX/view?usp=sharing) |
 
-&nbsp;
 
-## Dataset format
+
+## Directory format
 ```bash
 cmu-gpr-dataset
 ├── time_s-time_ns-loc-cmu-gpr
@@ -94,19 +116,35 @@ cmu-gpr-dataset
 │   └── we_odom.csv
 └── ...
 ```
-&nbsp;
 
-## Additional Details
-<!-- TODO add the paper to something and link. -->
-Additional details about the CMU-GPR dataset can be found here: [[Paper]]().
+## Data Format
 
-An example using the data collected can be used can be found here: [[Paper]](https://arxiv.org/abs/2103.15317).
+The data format for each type of measurement is shown below.
 
-&nbsp;
+<img src="misc/data_type.png" width="500" style="center">
+
+The amplitude of the GPR measurements can be represented in millivolts by dividing by 32767 and multiplying by 50 (as specified by the manufacturer).
+
+
+## Utility Functions
+
+The general interface for accessing GPR submaps is summarized below.
+
+<img src="misc/api.png" width="500" style="center">
+
+
 
 ## Citation
 
-If you use this dataset in your research, please cite the following paper:
+If you use this dataset in your research, please cite the following papers:
+
+```bibtex
+@misc{baikovitz2021dataset,
+      title={CMU-GPR Dataset: Ground Penetrating Radar Dataset for Robot Localization and Mapping}, 
+      author={Alexander Baikovitz and Paloma Sodhi and Michael Dille and Michael Kaess},
+      year={2021}
+}
+```
 
 ```bibtex
 @misc{baikovitz2021ground,
@@ -118,7 +156,12 @@ If you use this dataset in your research, please cite the following paper:
       primaryClass={cs.RO}
 }
 ```
-&nbsp;
+
+## Additional Details
+<!-- TODO add the paper to something and link. -->
+Additional details about the CMU-GPR dataset can be found here: [[Paper]](misc/baikovitz2021dataset.pdf).
+
+An example using the data collected can be used can be found here: [[Paper]](https://arxiv.org/abs/2103.15317).
 
 ## Licence
 This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License and is intended for non-commercial academic use. If you are interested in using the dataset for commercial purposes please contact us at abaikovitz@cmu.edu.
