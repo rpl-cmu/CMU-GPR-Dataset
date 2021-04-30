@@ -84,22 +84,22 @@ The dataset is available at the links shown in the table below. Data is availabl
 | A.10  | nsh_b | 1613059996-0-nsh_b-cmu-gpr.zip | --  | 1,193.0  | [[Link]](https://drive.google.com/file/d/1RzHPNT421uTjZ_pVIckfQV56z19enMDW/view?usp=sharing) |
 
 **Full unprocessed datasets:**
-| Sequence Number | Location | Filename | Correlated Sequences | Size (MB) | Link |
-| -- | -- | -- | -- | -- | -- |
-| B.0 |  gates_g | 1613063411-767709970-gates_g_all-cmu-gpr.zip | --  | 3,997.1  | [[Link]](https://drive.google.com/file/d/1o8GBDv3d1qlOGaVfzocIPFAaOEWwDmS7/view?usp=sharing) |
-| B.1 |  nsh_b | 1613059186-574372053-nsh_b_all-cmu-gpr.zip | --  | 3,205.3  | [[Link]](https://drive.google.com/file/d/1qoHHCSUx-PUPfOEek2GftmWOAfqqY_Zt/view?usp=sharing) |
-| B.2 |  nsh_h | 1613061585-228924036-nsh_h_all-cmu-gpr.zip | --  | 1,258.4  | [[Link]](https://drive.google.com/file/d/1N0bDwdnkmr7xCjS5LhK3JI10Pte4YNij/view?usp=sharing) |
+| Sequence Number | Location | Filename | Size (MB) | Link |
+| -- | -- | -- | -- | -- |
+| B.0 |  gates_g | 1613063411-767709970-gates_g_all-cmu-gpr.zip |  3,997.1  | [[Link]](https://drive.google.com/file/d/1o8GBDv3d1qlOGaVfzocIPFAaOEWwDmS7/view?usp=sharing) |
+| B.1 |  nsh_b | 1613059186-574372053-nsh_b_all-cmu-gpr.zip |  3,205.3  | [[Link]](https://drive.google.com/file/d/1qoHHCSUx-PUPfOEek2GftmWOAfqqY_Zt/view?usp=sharing) |
+| B.2 |  nsh_h | 1613061585-228924036-nsh_h_all-cmu-gpr.zip |  1,258.4  | [[Link]](https://drive.google.com/file/d/1N0bDwdnkmr7xCjS5LhK3JI10Pte4YNij/view?usp=sharing) |
 
 
 **Pure odometry data:** 
 
 *Useful for training, debugging, and small experiments*
 
-| Sequence Number | Location | Filename | Correlated Sequences | Size (MB) | Link |
-| -- | -- | -- | -- | -- | -- |
-| C.0 |  nrec | 1611959465-373785018-nrec-cmu-gpr.zip | --  | 11  | [[Link]](https://drive.google.com/file/d/1m56aXM7P-UKVzbGb0hLFw5TxzlezQHVN/view?usp=sharing) |
-| C.1 |  nrec | 1611959921-603359937-nrec-cmu-gpr.zip | --  | 32.3  | [[Link]](https://drive.google.com/file/d/10XCwAfRfrrKVbGaa1U3QvT1ygDH7xXbX/view?usp=sharing) |
-| C.2 |  smith | 1612204529-582686901-smith-cmu-gpr.zip | --  | 32.3  | [[Link]](https://drive.google.com/file/d/1mcKLDv2Y4EaPNRNmudlqJhwjXEs_PAXX/view?usp=sharing) |
+| Sequence Number | Location | Filename |  Size (MB) | Link |
+| -- | -- | -- | -- |  -- |
+| C.0 |  nrec | 1611959465-373785018-nrec-cmu-gpr.zip |  11  | [[Link]](https://drive.google.com/file/d/1m56aXM7P-UKVzbGb0hLFw5TxzlezQHVN/view?usp=sharing) |
+| C.1 |  nrec | 1611959921-603359937-nrec-cmu-gpr.zip |  32.3  | [[Link]](https://drive.google.com/file/d/10XCwAfRfrrKVbGaa1U3QvT1ygDH7xXbX/view?usp=sharing) |
+| C.2 |  smith | 1612204529-582686901-smith-cmu-gpr.zip |  32.3  | [[Link]](https://drive.google.com/file/d/1mcKLDv2Y4EaPNRNmudlqJhwjXEs_PAXX/view?usp=sharing) |
 
 
 
