@@ -139,10 +139,13 @@ The general interface for accessing GPR submaps is summarized below.
 If you use this dataset in your research, please cite the following papers:
 
 ```bibtex
-@misc{baikovitz2021dataset,
+@misc{baikovitz2021cmugpr,
       title={CMU-GPR Dataset: Ground Penetrating Radar Dataset for Robot Localization and Mapping}, 
       author={Alexander Baikovitz and Paloma Sodhi and Michael Dille and Michael Kaess},
-      year={2021}
+      year={2021},
+      eprint={2107.07606},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO}
 }
 ```
 
