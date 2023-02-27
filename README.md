@@ -167,6 +167,6 @@ Additional details about the CMU-GPR dataset can be found here: [[Paper]](misc/b
 An example using the data collected can be used can be found here: [[Paper]](https://arxiv.org/abs/2103.15317).
 
 ## Licence
-This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License and is intended for non-commercial academic use. If you are interested in using the dataset for commercial purposes please contact us at abaikovitz@cmu.edu.
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License and is intended for non-commercial academic use. If you are interested in using the dataset for commercial purposes please contact us at data@mach9.io.
 
 :heart::robot:
